@@ -14,7 +14,9 @@ y = boston.target
 
 
 df = pd.DataFrame(X, columns=boston.feature_names)
-df['target'] = y
+df["target"] = y
+
+print(df)
 
 
 selector = SelectKBest(f_classif, k=3)
@@ -22,6 +24,8 @@ X_selected = selector.fit_transform(X, y)
 
 
 selected_features_indices = selector.get_support(indices=True)
+
+print(selected_features_indices)
 
 selected_features = df.columns[selected_features_indices]
 
@@ -33,12 +37,12 @@ for i in selected_features:
 
 # CORRELATION
 
-correlation = df.corr(method='pearson')
+correlation = df.corr(method="pearson")
 
 
 print(correlation)
 
-most_correlated = correlation['target'].sort_values(ascending=False)[1:4].index
+most_correlated = correlation["target"].sort_values(ascending=False)[1:4].index
 
 print("Features Based on Pearson Correlation:", most_correlated)
 print("Features Based on Anova", selected_features)

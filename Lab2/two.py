@@ -11,7 +11,7 @@ X = iris.data
 y = iris.target
 
 df = pd.DataFrame(X, columns=iris.feature_names)
-df['target'] = y
+df["target"] = y
 
 print(df.head())
 
@@ -27,12 +27,16 @@ print("The selected features are:", selected_feature)
 
 
 # CORRELATION
-pearson_corr = df.corr(method='pearson')
+pearson_corr = df.corr(method="pearson")
 print(pearson_corr)
 
 
-most_correlated_features = pearson_corr['target'].sort_values(ascending=False)[
-    1:4].index
+most_correlated_features = (
+    pearson_corr["target"].sort_values(ascending=False)[1:4].index
+)
 
 print("Features selected by SelectKBest:", selected_feature)
 print("Most correlated features with the target:", most_correlated_features)
+
+
+help(f_classif)

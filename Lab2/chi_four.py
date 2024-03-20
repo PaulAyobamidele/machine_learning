@@ -14,7 +14,7 @@ X = breast_cancer.data
 y = breast_cancer.target
 
 df = pd.DataFrame(X, columns=breast_cancer.feature_names)
-df['target'] = y
+df["target"] = y
 
 selector = SelectKBest(chi2, k=1)
 X_selected = selector.fit_transform(X, y)
@@ -35,7 +35,7 @@ breast_corr = df.corr("spearman")
 
 print(breast_corr.columns)
 
-most_correlated = breast_corr['target'].sort_values(ascending=False)[1:2].index
+most_correlated = breast_corr["target"].sort_values(ascending=False)[1:2].index
 
 print(most_correlated)
 print(selected_features)
